@@ -9,7 +9,7 @@ post '/' do
 
   command = params.fetch("command").strip
 
-  if text == 'bathroom'
+  if text == '/bathroom'
 
     response = HTTParty.get('http://businesstime.localytics.com/api')
 
