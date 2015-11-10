@@ -5,7 +5,7 @@ InvalidTokenError = Class.new(Exception)
 
 post '/' do
 
-  raise(InvalidTokenError) unless params[:token] == '2BEFUpP1nHFKvh20EHT8r9Cb'
+  raise(InvalidTokenError) unless params[:token] == 'FGYvm2QXJyG9yB0BfQmW3DdY'
 
   text = params.fetch("text").strip
 
