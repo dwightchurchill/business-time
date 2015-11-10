@@ -5,11 +5,11 @@ InvalidTokenError = Class.new(Exception)
 
 post '/' do
 
-  raise(InvalidTokenError) unless params[:token] == 'FGYvm2QXJyG9yB0BfQmW3DdY'
+  raise(InvalidTokenError) unless params[:token] == 'K5Dcv99PyTWwSWb7bo9M9xJt'
 
   command = params.fetch("command").strip
 
-  if command == '/bathroom'
+  if command == '/business-time'
 
     response = HTTParty.get('http://businesstime.localytics.com/api')
 
