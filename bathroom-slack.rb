@@ -7,9 +7,9 @@ post '/' do
 
   raise(InvalidTokenError) unless params[:token] == 'FGYvm2QXJyG9yB0BfQmW3DdY'
 
-  text = params.fetch("text").strip
+  command = params.fetch("command").strip
 
-  if text == 'mens'
+  if text == 'bathroom'
 
     response = HTTParty.get('http://businesstime.localytics.com/api')
 
@@ -27,7 +27,7 @@ post '/' do
     <<-TEXT
     We only surface information on the men's room currently!
     TEXT
-    
+
   end 
 
 end
