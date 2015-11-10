@@ -1,1 +1,1 @@
-web: bundle exec ruby enrichment-slack.rb -p $PORT
+web: bundle exec ruby bathroom-slack.rb -p $PORT
