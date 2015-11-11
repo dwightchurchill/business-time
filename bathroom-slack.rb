@@ -3,7 +3,7 @@ require 'httparty'
 
 InvalidTokenError = Class.new(Exception)
 
-post '/' do
+post '/business-time' do
 
   raise(InvalidTokenError) unless params[:token] == 'K5Dcv99PyTWwSWb7bo9M9xJt'
 
