@@ -1,6 +1,6 @@
 require 'sinatra'
 require 'httparty'
-require 'dogfood'
+require './dogfood'
 
 InvalidTokenError = Class.new(Exception)
 
