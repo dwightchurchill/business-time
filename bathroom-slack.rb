@@ -2,7 +2,6 @@ require 'sinatra'
 require 'httparty'
 require 'dogfood'
 
-
 InvalidTokenError = Class.new(Exception)
 
 Dogfood.config do |cfg|
