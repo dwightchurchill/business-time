@@ -4,14 +4,14 @@ require './dogfood'
 
 InvalidTokenError = Class.new(Exception)
 
-Dogfood.config do |cfg|
- cfg.log_events = true
- cfg.debug = true
+# Dogfood.config do |cfg|
+#  cfg.log_events = true
+#  cfg.debug = true
 
- cfg.au = '9259d48d2ae648f40fe046d-2f8adb82-88ad-11e5-bd6a-00d0fea82624'
- cfg.pa = Time.new(2013, 10, 15).to_i
- cfg.dp = `uname`.strip
-end
+#  cfg.au = '9259d48d2ae648f40fe046d-2f8adb82-88ad-11e5-bd6a-00d0fea82624'
+#  cfg.pa = Time.new(2013, 10, 15).to_i
+#  cfg.dp = `uname`.strip
+# end
 
 post '/business-time/' do
 
@@ -35,7 +35,6 @@ post '/business-time/' do
       TEXT
 
       Dogfood.log('Business Time Request', method: 'POST', status: 'All Stalls Open')
-      Dogfood.flush
 
     elsif men_right_stall_status == 'closed' && men_left_stall_status == 'closed'
 
@@ -44,7 +43,6 @@ post '/business-time/' do
       TEXT
 
       Dogfood.log('Business Time Request', method: 'POST', status: 'No Stalls Open')
-      Dogfood.flush
 
     elsif men_right_stall_status == 'open' && men_left_stall_status == 'closed'
 
@@ -53,7 +51,6 @@ post '/business-time/' do
       TEXT
 
       Dogfood.log('Business Time Request', method: 'POST', status: 'Right Stall Open')
-      Dogfood.flush
 
     elsif men_right_stall_status == 'closed' && men_left_stall_status == 'open'
       
@@ -62,7 +59,6 @@ post '/business-time/' do
       TEXT
 
       Dogfood.log('Business Time Request', method: 'POST', status: 'Left Stall Open')
-      Dogfood.flush
 
     end
 
