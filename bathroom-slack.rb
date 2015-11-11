@@ -1,10 +1,17 @@
 require 'sinatra'
 require 'httparty'
+require 'dogfood'
+
 
 InvalidTokenError = Class.new(Exception)
 
-get '/business-time/' do
-  "Hello!"
+Dogfood.config do |cfg|
+ cfg.log_events = true
+ cfg.debug = true
+
+ cfg.au = '9259d48d2ae648f40fe046d-2f8adb82-88ad-11e5-bd6a-00d0fea82624'
+ cfg.pa = Time.new(2013, 10, 15).to_i
+ cfg.dp = `uname`.strip
 end
 
 post '/business-time/' do
@@ -28,11 +35,17 @@ post '/business-time/' do
       💚  All stalls are open! 
       TEXT
 
+      Dogfood.log('Business Time Request', method: 'POST', status: 'All Stalls Open')
+      Dogfood.flush
+
     elsif men_right_stall_status == 'closed' && men_left_stall_status == 'closed'
 
       <<-TEXT
       🔴  Unfortunately there are no stalls open!  
       TEXT
+
+      Dogfood.log('Business Time Request', method: 'POST', status: 'No Stalls Open')
+      Dogfood.flush
 
     elsif men_right_stall_status == 'open' && men_left_stall_status == 'closed'
 
@@ -40,11 +53,17 @@ post '/business-time/' do
       💛  Only the right stall is open! 
       TEXT
 
+      Dogfood.log('Business Time Request', method: 'POST', status: 'Right Stall Open')
+      Dogfood.flush
+
     elsif men_right_stall_status == 'closed' && men_left_stall_status == 'open'
       
       <<-TEXT
       💛  Only the left stall is open! 
       TEXT
+
+      Dogfood.log('Business Time Request', method: 'POST', status: 'Left Stall Open')
+      Dogfood.flush
 
     end
 
