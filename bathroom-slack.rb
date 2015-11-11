@@ -9,7 +9,7 @@ post '/business-time' do
 
   command = params.fetch("command").strip
 
-  if command == '/business-time'
+  if command == '/business-time/'
 
     response = HTTParty.get('http://businesstime.localytics.com/api')
 
