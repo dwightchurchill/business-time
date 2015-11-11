@@ -32,7 +32,7 @@ class Dogfood
 private
 
   UUID_GEN      = UUID.new
-  VERSION_STR   = "Dogfood_#{VERSION}"
+  VERSION_STR   = "Dogfood_Dwight"
   INSTALL_ID    = UUID_GEN.generate.to_s
   SESSION_ID    = UUID_GEN.generate.to_s
 
