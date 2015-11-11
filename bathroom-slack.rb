@@ -22,7 +22,7 @@ post '/business-time/' do
     women_left_stall_status = response[2]["value"]
     women_right_stall_status = response[3]["value"]
     
-    if men_left_stall_status && men_right_stall_status == 'open'
+    if men_left_stall_status == 'open' && men_right_stall_status == 'open'
 
       <<-TEXT
       💚  All stalls are open! 
