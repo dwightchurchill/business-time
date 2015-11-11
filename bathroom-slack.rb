@@ -17,30 +17,29 @@ post '/' do
     men_right_stall_status = response[1]["value"]
     women_left_stall_status = response[2]["value"]
     women_right_stall_status = response[3]["value"]
-    ❤️💚💛
     
     if men_left_stall_status && men_right_stall_status == 'open'
 
       <<-TEXT
-      💚 All stalls are open! 
+      💚  All stalls are open! 
       TEXT
 
     elsif men_right_stall_status == 'closed' && men_left_stall_status == 'closed'
 
       <<-TEXT
-      🔴 Unfortunately there are no stalls open!  
+      🔴  Unfortunately there are no stalls open!  
       TEXT
 
     elsif men_right_stall_status == 'open' && men_left_stall_status == 'closed'
 
       <<-TEXT
-      💛 Only the right stall is open! 
+      💛  Only the right stall is open! 
       TEXT
 
     elsif men_right_stall_status == 'closed' && men_left_stall_status == 'open'
       
       <<-TEXT
-      💛 Only the left stall is open! 
+      💛  Only the left stall is open! 
       TEXT
 
     end
