@@ -5,7 +5,7 @@ InvalidTokenError = Class.new(Exception)
 
 post '/business-time/' do
 
-  raise(InvalidTokenError) unless params[:token] == 'SyoRNu5pZJTDvvrhn5JipsLT'
+  raise(InvalidTokenError) unless params[:token] == '<SLACK_TOKEN>'
 
   command = params.fetch("command").strip
 
